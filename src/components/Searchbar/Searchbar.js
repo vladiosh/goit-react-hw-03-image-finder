@@ -6,19 +6,32 @@ import {
 } from './Searchbar.styled';
 import { BiSearchAlt } from 'react-icons/bi';
 import { Component } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
+import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
   state = {
-    searchQuery: '',
+    searchName: '',
+  };
+
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
   };
 
   handleChange = event => {
-    this.setState({ searchQuery: event.currentTarget.value.toLowerCase() });
+    this.setState({ searchName: event.currentTarget.value.toLowerCase() });
   };
 
   handleSubmit = event => {
     event.preventDefault();
-    this.setState({ searchQuery: '' });
+    if (this.state.searchName.trim() === '') {
+      toast.error('Заполните поисковую строку');
+
+      return;
+    }
+    this.props.onSubmit(this.state.searchName);
+
+    this.setState({ searchName: '' });
   };
 
   render() {
@@ -32,7 +45,7 @@ class SearchBar extends Component {
           </SearchFormButton>
 
           <SearchFormInput
-            value={this.state.searchQuery}
+            value={this.state.searchName}
             onChange={this.handleChange}
             className="input"
             type="text"

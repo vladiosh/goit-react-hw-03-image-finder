@@ -1,12 +1,16 @@
 import React from 'react';
 import { Component } from 'react';
 import { Container } from './App.styled';
+import toast, { Toaster } from 'react-hot-toast';
 import SearchBar from '../Searchbar/Searchbar';
 
 class App extends Component {
   state = {
-    images: [],
-    loading: false,
+    searchName: '',
+  };
+
+  handleFormSubmit = searchName => {
+    this.setState({ searchName });
   };
 
   componentDidMount() {
@@ -22,7 +26,8 @@ class App extends Component {
   render() {
     return (
       <Container>
-        <SearchBar />
+        <SearchBar onSubmit={this.handleFormSubmit} />
+        <Toaster position="top-right" reverseOrder={false} />
       </Container>
     );
   }
