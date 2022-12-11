@@ -65,7 +65,9 @@ class App extends Component {
     return (
       <Container>
         <SearchBar onSubmit={this.handleFormSubmit} />
+
         {images && <ImageGallery images={images} />}
+
         {loading && (
           <ThreeDots
             height="80"
