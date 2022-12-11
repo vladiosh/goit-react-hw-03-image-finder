@@ -6,6 +6,7 @@ import {
 } from './Searchbar.styled';
 import { BiSearchAlt } from 'react-icons/bi';
 import { Component } from 'react';
+import React from 'react';
 import toast from 'react-hot-toast';
 import PropTypes from 'prop-types';
 
@@ -25,7 +26,7 @@ class SearchBar extends Component {
   handleSubmit = event => {
     event.preventDefault();
     if (this.state.searchName.trim() === '') {
-      toast.error('Заполните поисковую строку');
+      toast.error('Fill in the search field');
 
       return;
     }
