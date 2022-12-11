@@ -1,14 +1,22 @@
-import { Bar, SearchForm, SearchFormButton } from './Searchbar.styled';
+import {
+  Bar,
+  SearchForm,
+  SearchFormButton,
+  SearchFormInput,
+} from './Searchbar.styled';
+import { BiSearchAlt } from 'react-icons/bi';
 
 const SearchBar = () => {
   return (
     <Bar>
       <SearchForm>
-        <SearchFormButton type="submit" className="button">
-          <span className="button-label">Search</span>
+        <SearchFormButton type="submit">
+          <span>
+            <BiSearchAlt size="25px" />
+          </span>
         </SearchFormButton>
 
-        <input
+        <SearchFormInput
           className="input"
           type="text"
           autoComplete="off"
