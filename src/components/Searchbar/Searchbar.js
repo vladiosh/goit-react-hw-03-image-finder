@@ -6,7 +6,7 @@ import {
 } from './Searchbar.styled';
 import { BiSearchAlt } from 'react-icons/bi';
 import { Component } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
